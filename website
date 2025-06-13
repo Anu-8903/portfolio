@@ -1,0 +1,617 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anusha K | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Header */
+    #header {
+      width: 100%;
+      height: 100vh;
+      background-image: url(pexels-merlin-11167638.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 10%;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin-left: 25px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+      padding: 5px 10px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ff004f;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      height: 3px;
+      width: 0%;
+      background-color: #ff004f;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .header-text {
+      margin-top: 14%;
+      padding-left: 10%;
+      font-size: 30px;
+    }
+
+    .header-text h1 {
+      font-size: 60px;
+      margin-top: 20px;
+    }
+
+    .header-text h1 span {
+      color: lawngreen;
+    }
+
+    /* About */
+    #about {
+      padding: 80px 10%;
+      color: #ababab;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .col1 {
+      flex-basis: 35%;
+    }
+
+    .col1 img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .col2 {
+      flex-basis: 60%;
+    }
+
+    .subtitle {
+      font-size: 60px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .tab-titles {
+      display: flex;
+      margin: 20px 0 40px;
+    }
+
+    .tab-links {
+      margin-right: 50px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .tab-links::after {
+      content: "";
+      width: 0%;
+      height: 3px;
+      background: #ff004f;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      transition: 0.5s;
+    }
+
+    .tab-links.active-link::after {
+      width: 50%;
+    }
+
+    .tab-contents ul li {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    .tab-contents ul li span {
+      color: crimson;
+      font-size: 14px;
+    }
+
+    .tab-contents {
+      display: none;
+    }
+
+    .tab-contents.active-tab {
+      display: block;
+    }
+
+    /* Services */
+    #services {
+      padding: 50px 10%;
+    }
+   .col1 img {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  border-radius: 15px;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+}
+
+
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: 50px;
+    }
+
+    .service-card {
+      background: #262626;
+      padding: 40px;
+      font-size: 13px;
+      border-radius: 10px;
+      transition: background 0.5s, transform 0.5s;
+    }
+
+    .service-card i {
+      font-size: 50px;
+      margin-bottom: 30px;
+    }
+
+    .service-card h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .service-card a {
+      text-decoration: none;
+      color: #fff;
+      margin-top: 20px;
+      display: inline-block;
+      font-size: 12px;
+    }
+
+    .service-card:hover {
+      background: #ff004f;
+      transform: translateY(-10px);
+    }
+
+    /* Portfolio */
+    #portfolio {
+      padding: 50px 10%;
+    }
+
+    .worklist {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .work {
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.5s;
+    }
+
+    .layer {
+      width: 100%;
+      height: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), #ff004f);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      transition: height 0.5s;
+    }
+
+    .work:hover img {
+      transform: scale(1.1);
+    }
+
+    .work:hover .layer {
+      height: 100%;
+    }
+
+    .layer h3 {
+      margin-bottom: 15px;
+    }
+
+    .layer a {
+      margin-top: 10px;
+      background: #fff;
+      color: #ff004f;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .btn {
+      display: block;
+      margin: 40px auto;
+      border: 1px solid #ff004f;
+      padding: 14px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #fff;
+      transition: 0.5s;
+    }
+
+    .btn:hover {
+      background: #ff004f;
+    }
+
+    /* Contact */
+    #contact {
+      padding: 50px 10%;
+    }
+
+    .contactleft {
+      flex-basis: 35%;
+    }
+
+    .contactright {
+      flex-basis: 60%;
+    }
+
+    .contactleft p {
+      margin: 20px 0;
+    }
+
+    #icon1,
+    #icon2 {
+      color: #ff004f;
+      margin-right: 10px;
+    }
+
+    .social-icons {
+      margin-top: 30px;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      font-size: 30px;
+      margin-right: 15px;
+      color: #ababab;
+      transition: transform 0.5s;
+    }
+
+    .social-icons a:hover {
+      color: #ff004f;
+      transform: translateY(-5px);
+    }
+
+    .btn2 {
+      display: inline-block;
+      background: #ff004f;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      background: #262626;
+      border: none;
+      outline: none;
+      padding: 15px;
+      margin: 10px 0;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 10px;
+    }
+
+    /* Footer */
+    .copyright {
+      text-align: center;
+      padding: 20px;
+      background: #262626;
+      font-size: 14px;
+    }
+
+    .copyright i {
+      color: #ff004f;
+    }
+
+    /* Responsive */
+    @media only screen and (max-width: 768px) {
+      .row {
+        flex-direction: column;
+      }
+
+      .col1,
+      .col2,
+      .contactleft,
+      .contactright {
+        flex-basis: 100%;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        display: none;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        left: 0;
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+  <div class="container">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#header">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+      <i class="fa-solid fa-bars menu-toggle" onclick="toggleMenu()"></i>
+    </nav>
+    <div class="header-text">
+      <p>Web Designer | Full Stack Developer</p>
+      <h1>Hi, I'm <span>Anusha K</span><br>from Tamil Nadu, India</h1>
+    </div>
+  </div>
+</header>
+
+<!-- About Section -->
+<!-- Include your #about, #services, #portfolio, #contact sections below -->
+<!-- [ Omitted for brevity—you can paste your already working content from earlier ] -->
+
+<!-- Script for tabs and menu toggle -->
+ 
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col col1">
+                    <img src="photo.jpg" alt="About Me Image">
+                </div>
+                <div class="col col2">
+                    <h1 class="subtitle">About Me</h1>
+                    <p>Computer Science and Engineering student (2022–2026) with hands-on experience in full-stack web development. Skilled in Java, JavaScript, HTML, CSS, MySQL, and Java Servlets. Passionate about building responsive, user-friendly web applications and eager to contribute to real-world development teams.I aim to gain practical, hands-on experience, contribute to
+                        impactful real-world projects, and further refine my skills by collaborating with industry professionals</p>
+                  <div class="tab-titles">
+    <p class="tab-links" onclick="opentab('edu')">Education</p>
+    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+    <p class="tab-links" onclick="opentab('exp')">Experience</p>
+</div>
+
+<div class="tab-contents active-tab" id="skills">
+    <ul>
+        <li><span>Languages:</span> C, Java, JavaScript</li>
+        <li><span>Frontend Development:</span> HTML5, CSS3, Bootstrap</li>
+        <li><span>Backend Development:</span> Java Servlets, JSP, basic Node.js, basic React.js</li>
+        <li><span>Database:</span> MySQL</li>
+        <li><span>Tools & IDEs:</span> NetBeans 8.2, Visual Studio Code</li>
+        <li><span>Other Skills:</span> Responsive Design, UI Layouts, Git (basic)</li>
+    </ul>
+</div>
+
+                   <div class="tab-contents" id="exp">
+    <ul>
+        <li>
+            <span>Internship:</span> Full Stack Web Development Intern at AK Infopark, Nagercoil  
+             Assisted in developing responsive web applications using HTML5, CSS3, JavaScript, and MySQL.  
+             Gained practical exposure to backend integration and explored basics of Node.js and React.js.
+        </li>
+    </ul>
+</div>
+
+                   <div class="tab-contents" id="edu">
+    <ul>
+        <li><span>College:</span> B.E. Computer Science and Engineering (2022–2026)<br>
+            University College of Engineering, Nagercoil – CGPA: 8.97</li>
+        <li><span>School:</span> Higher Secondary (Maths-Biology), Govt. HSS, Vadasery – 92% (2022)</li>
+    </ul>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+    <div class="container">
+        <h1 class="subtitle">Areas of Interest—</h1>
+        <div class="services-list">
+            <div class="service-card">
+                <i class="fa-solid fa-laptop-code"></i>
+                <h2>Front-End Development</h2>
+                <p>Creating clean, responsive user interfaces using HTML5, CSS3, JavaScript, and Bootstrap for seamless user experiences.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-database"></i>
+                <h2>Database Management</h2>
+                <p>Designing and managing structured data using MySQL. Ensuring efficient data retrieval, storage, and security in web applications.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-code-branch"></i>
+                <h2>Full Stack Web Development</h2>
+                <p>Building complete web solutions using Java, Servlets, JSP, and MySQL for the backend, integrated with modern front-end technologies.</p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Portfolio Section -->
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="subtitle">My Work</h1>
+            <div class="worklist">
+                <div class="work">
+                    <img src="p1.jpg" alt="">
+                    <div class="layer">
+                        <h3>Food Website</h3>
+                        <p>Designed and built a fully functional food website as a capstone project.Implemented user-friendly interfaces, responsive layouts, and clean, structured code using HTML and CSS</p>
+                          <a href="https://anusha8903.github.io/Website/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="p2.jpg" alt="">
+                    <div class="layer">
+                        <h3>Library Management System</h3>
+                        <p>Implemented features like catalog management with a user-friendly interface.Designed and developed a web-based system using HTML, CSS, Java Servlets, and a Relational Database</p>
+                        
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="p3.jpg" alt="">
+                    <div class="layer">
+                        <h3>Portfolio</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dolores maiores provident alias repudiandae maxime saepe minus nostrum cumque voluptate dolor deleniti voluptatem nesciunt veritatis expedita, necessitatibus vel sapiente quis.</p>
+                         <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+   <div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contactleft">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i id="icon1" class="fa-solid fa-paper-plane"></i> anushakannan888@gmail.com</p>
+                <p><i id="icon2" class="fa-solid fa-phone"></i> +91 94896 01692</p>
+
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/anusha-k-18b36b31b/" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/anusha8903" target="_blank">
+                        <i class="fa-brands fa-square-github"></i>
+                    </a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+
+                <a href="Resume1.pdf" download class="btn btn2">Download CV</a>
+            </div>
+
+            <div class="contactright">
+                <form action="#">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" placeholder="Your Message" rows="6" required></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="copyright">
+            <p>Copyright K Anusha this content <i class="fa-solid fa-heart"></i> @ Jan-2025</p>
+        </div>
+    </div>
+   
+<script>
+  var tablinks = document.getElementsByClassName("tab-links");
+  var tabcontents = document.getElementsByClassName("tab-contents");
+  function opentab(tabname) {
+    for (tablink of tablinks) {
+      tablink.classList.remove("active-link");
+    }
+    for (tabcontent of tabcontents) {
+      tabcontent.classList.remove("active-tab");
+    }
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+  }
+
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+</script>
+</body>
+</html>
